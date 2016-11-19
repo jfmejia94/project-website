@@ -29,7 +29,7 @@ app.controller("SecondController",["$scope","$http", function($scope,$http){
 	$scope.users = [];
 	/* objeto dondese agregaran los nuevos uuarios*/
 	$scope.NewUser = {};
-	$http.get("http://localhost/api-app/public/users")
+	$http.get("http://localhost/project-api/public/users")
 		.success(function(data){
 			//console.log(data);
 			$scope.users = data;
@@ -38,7 +38,7 @@ app.controller("SecondController",["$scope","$http", function($scope,$http){
 		});
 
 	$scope.addUser = function(){
-		$http.post("http://localhost/api-app/public/users/create",{
+		$http.post("http://localhost/project-api/public/users/create",{
 			name: $scope.NewUser.name,
 			email: $scope.NewUser.email,
 			password : $scope.NewUser.password,
