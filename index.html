@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- inicia aplicacion angular ng-app-->
+<html ng-app="MyAppAgenda">
+<head>
+	<meta charset="utf-8">	
+	<title>Inicio - Home Agenda</title>
+	<script src="js/angular.min.js"></script>
+	<script src="js/controller.js"></script>
+</head>
+	<body>
+		<div ng-controller="FirstController">
+			<!--{{"Hola" + "Mundo"}}-->
+			<input type="text" ng-model="nombre">
+			{{"Hola" + nombre}}
+			<br>
+			<br>
+			<br>
+			<!-- ng-model sincroniza el valor del modelo con la vista -->
+			<input type="text" ng-model="nuevoComentario.comentario"><br>
+			<input type="text" ng-model="nuevoComentario.usuario"><br>
+			<buton ng-click="agregarComentario()">Agregar Comentario</button>
+
+			<h3>Comentarios</h3>
+			<!-- ng-repeat ciclo de objetos -->
+			<ul>
+				<li ng-repeat="comentario in comentarios">
+					{{comentario.comentario}} - <strong>{{comentario.usuario}}</strong>
+				</li>
+			</ul>
+		</div>
+
+		<!-- Traer metodos desde ajax -->
+		<div ng-controller="SecondController">
+			<ul>
+				<li ng-repeat="user in users">
+					{{user.name}} - <strong>{{user.email}}</strong>
+				</li>
+			</ul>
+
+			<input type="text" ng-model="NewUser.name"><br>
+			<input type="text" ng-model="NewUser.email"><br>
+			<input type="text" ng-model="NewUser.password"><br>
+			<buton ng-click="addUser()">Agregar Usuario</button>
+		</div>
+
+	</body>
+</html>
